@@ -12,7 +12,6 @@ export class NavService {
   }
 
   getFormState(): Observable<boolean> {
-    console.log('Form is ', this.valid);
     return this.valid.asObservable();
   }
 

@@ -12,24 +12,19 @@ import { NavService } from '../nav.service';
   styleUrls: ['tab1.component.css'],
 })
 export class Tab1 {
+  
   userAddressValidations: FormGroup;
   firstError: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private navService: NavService
   ) {}
 
-  // private onFormValid() {
-  //   console.log('form is valid');
-  // }
-
   private onFormValid(val: string) {
-    console.log("ufhebh", val);
     if (val == "VALID"){
-      console.log('ths');
       this.navService.validateFormState();
     }if (val == "INVALID"){
-      console.log('skdjkj');
       this.navService.inValidateFormState();
     }
     
@@ -69,19 +64,9 @@ export class Tab1 {
       }
     );
 
-    // this.userAddressValidations.statusChanges
-    //   .pipe(
-    //     filter((status: string) => {
-    //       console.log(status);
-    //       return this.userAddressValidations.valid;
-    //     })
-    //   )
-    //   .subscribe(() => this.onFormValid());
-
     this.userAddressValidations.statusChanges
       
       .subscribe(value => {
-        console.log("values ", value);
         this.onFormValid(value)}
         );
   }

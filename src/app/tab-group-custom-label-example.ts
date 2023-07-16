@@ -10,13 +10,15 @@ import { NavService } from './nav.service';
   styleUrls: ['tab-group-custom-label-example.css'],
 })
 export class TabGroupCustomLabelExample {
+  
   tab2Valid = false;
+
   constructor(private navService: NavService) {
     this.navService.getFormState().subscribe((value) => {
       this.tab2Valid = value;
-      console.log('test', this.tab2Valid);
     });
   }
+
 }
 
 /**  Copyright 2020 Google LLC. All Rights Reserved.
