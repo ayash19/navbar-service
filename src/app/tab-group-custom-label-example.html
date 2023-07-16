@@ -1,0 +1,37 @@
+<mat-tab-group>
+  <mat-tab>
+    <!-- #docregion label-directive -->
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      First
+    </ng-template>
+    <!-- #enddocregion label-directive -->
+    <tab1></tab1>
+  </mat-tab>
+
+  <mat-tab #secondTab [disabled]="!tab2Valid">
+    <ng-template mat-tab-label>
+      is active: {{secondTab.isActive}}
+      <ng-container *ngIf="secondTab.isActive; else matdown">
+        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      </ng-container>
+      <ng-template #matdown>
+        <mat-icon class="example-tab-icon">thumb_down</mat-icon>
+      </ng-template>
+    </ng-template>
+    <tab2></tab2>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Third
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
